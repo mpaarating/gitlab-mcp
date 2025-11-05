@@ -1,5 +1,10 @@
 # GitLab MCP Server
 
+[![CI](https://github.com/mpaarating/gitlab-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/mpaarating/gitlab-mcp/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
+
 **A Model Context Protocol (MCP) server for retrieving GitLab merge request comments.**
 
 🔒 **READ-ONLY**: This server only fetches data from GitLab. It never modifies MR state, comments, or any other GitLab data.
