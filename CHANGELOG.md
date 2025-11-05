@@ -8,17 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.1] - 2025-11-05
 
 ### Added
+
 - Test connection script (`npx tsx scripts/test-connection.ts`) to verify GitLab setup before configuration
 - New npm scripts: `start:dev` (build and start) and `inspector` (debug mode)
 - Status badges in README (CI, License, TypeScript, Node.js versions)
 - Step-by-step test connection guide in QUICKSTART.md
 
 ### Fixed
+
 - **Critical**: Added `dotenv` support to automatically load `.env` files
 - Users can now use `.env` files without manually exporting environment variables
 - Configuration now works out of the box with `.env` file
 
 ### Changed
+
 - Updated QUICKSTART.md with connection test step
 - Improved error messages in test connection script with specific troubleshooting tips
 - Enhanced README with development section
@@ -26,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-11-05
 
 ### Added
+
 - Initial release of GitLab MCP Server
 - Read-only MCP server for retrieving GitLab merge request comments
 - Single tool: `gitlab_get_mr_comments`
@@ -38,6 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - JSON Schema exports for API consumers
 
 ### Security
+
 - Read-only guarantee enforced at code, type, and API levels
 - Token redaction in logs
 - Comprehensive security documentation
