@@ -95,6 +95,25 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
 
 Restart Cursor or Claude Desktop for the configuration to take effect.
 
+## Available Tools
+
+This MCP server provides the following tool(s):
+
+### `gitlab_get_mr_comments`
+
+Fetches comments from a GitLab merge request, including inline discussions and overview notes.
+
+**Tool Name**: `gitlab_get_mr_comments`
+
+**Description**: Fetch comments from a GitLab merge request. Returns inline discussions and overview notes in a structured format. Supports filtering by resolution status and excluding system notes. Useful for AI agents to review feedback and plan code fixes.
+
+**When to use**:
+
+- Review unresolved comments for a merge request
+- Get feedback on specific files
+- Generate fix plans from reviewer comments
+- Check resolution status of discussions
+
 ## Usage
 
 ### Basic Usage
@@ -103,7 +122,7 @@ Ask your AI agent:
 
 > "Fetch all unresolved comments from MR !123 in project my-org/my-repo"
 
-The agent will use the `gitlab_get_mr_comments` tool with appropriate parameters.
+The agent will automatically discover and use the `gitlab_get_mr_comments` tool with appropriate parameters.
 
 ### Example Tool Call
 
@@ -217,8 +236,9 @@ To use with a self-managed GitLab instance:
 1. **Verify MCP Configuration**: Check your MCP config file and ensure `GITLAB_TOKEN` is in the `env` section:
    - Cursor: `~/.cursor/mcp.json`
    - Claude Desktop: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
-   
+
    Example:
+
    ```json
    {
      "mcpServers": {
@@ -291,6 +311,27 @@ To use with a self-managed GitLab instance:
 - Check JSON syntax in config file
 - Restart Cursor/Claude Desktop after config changes
 - Check logs: Cursor logs in `~/.cursor/logs`, Claude logs in `~/Library/Logs/Claude`
+
+### "Tools not found" or "What tools are available?"
+
+**Cause**: AI agent can't discover the `gitlab_get_mr_comments` tool
+
+**Solution**:
+
+1. **Verify server is connected**:
+   - Check MCP server status in your IDE (usually in settings/extensions)
+   - Look for "gitlab-mr-comments" in the connected servers list
+   - If not connected, see "Server not showing up" above
+
+2. **The tool name is**: `gitlab_get_mr_comments`
+   - You can tell your agent: "Use the gitlab_get_mr_comments tool to fetch comments from MR !530 in project zapier/team-sprout/templates"
+
+3. **Check server logs**:
+   - Look for "GitLab MR Comments tool registered successfully" message
+   - If missing, the server may not have started properly
+
+4. **Restart both IDE and try again**:
+   - Sometimes tool discovery needs a fresh connection
 
 ## Development
 

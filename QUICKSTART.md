@@ -53,6 +53,7 @@ npx tsx scripts/test-connection.ts
 ```
 
 **Expected output:**
+
 ```
 🔍 Testing GitLab MCP Server Configuration
 
@@ -121,6 +122,29 @@ Create or edit `~/.cursor/mcp.json`:
 - **Cursor**: Restart Cursor completely
 - **Claude Desktop**: Restart Claude Desktop
 
+## Step 6: Available Tools
+
+After setup, your AI agent will have access to:
+
+### `gitlab_get_mr_comments`
+
+**Tool Name**: `gitlab_get_mr_comments`
+
+**What it does**: Fetches all comments (inline discussions and overview notes) from a GitLab merge request
+
+**Required Parameters**:
+
+- `project`: The GitLab project path (e.g., `zapier/team-sprout/templates`)
+- `mr`: The merge request IID number (e.g., `530` for MR !530)
+
+**Optional Parameters**:
+
+- `onlyUnresolved`: Only return unresolved comments (default: false)
+- `includeSystem`: Include system-generated notes (default: false)
+- `format`: Return format - `json` or `markdown` (default: json)
+
+Your AI agent should automatically discover this tool - you don't need to tell it the tool name, just describe what you want!
+
 ## Step 7: Test It!
 
 ### In Cursor or Claude, try:
@@ -168,6 +192,7 @@ This is the most common issue when setting up the MCP server!
 **Solution**:
 
 1. **Check your MCP config file has the token**:
+
    ```json
    {
      "mcpServers": {
@@ -224,6 +249,30 @@ This is the most common issue when setting up the MCP server!
 - Check logs:
   - Cursor: `~/.cursor/logs`
   - Claude: `~/Library/Logs/Claude`
+
+### Tools not discovered / "What tools are available?"
+
+If your AI agent says it can't find tools from the gitlab-mr-comments server:
+
+**Quick fix**: Tell the agent explicitly:
+
+> "Use the `gitlab_get_mr_comments` tool from the gitlab-mr-comments MCP server to fetch comments from MR !530 in project zapier/team-sprout/templates"
+
+**Root cause checks**:
+
+1. **Is the server connected?**
+   - Check your IDE's MCP server status (usually in settings)
+   - Look for "gitlab-mr-comments" in connected servers
+   - Should show as "Connected" or "Running"
+
+2. **Did the server start successfully?**
+   - Check logs for "GitLab MR Comments tool registered successfully"
+   - If you see the GITLAB_TOKEN error instead, see troubleshooting above
+
+3. **Try a full restart**:
+   - Quit your IDE completely (not just reload)
+   - Start it again
+   - Wait 10-15 seconds for all MCP servers to connect
 
 ## Development Mode
 
