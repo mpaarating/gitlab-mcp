@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2025-11-05
+
+### Fixed
+- **Critical**: `.env` file now loads correctly from project root regardless of current working directory
+- Fixes issue where MCP clients starting the server from different directories couldn't find `.env`
+- Config module now explicitly resolves path to project root for reliable `.env` loading
+
 ## [0.1.1] - 2025-11-05
 
 ### Added
@@ -47,5 +54,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Token redaction in logs
 - Comprehensive security documentation
 
+[0.1.2]: https://github.com/mpaarating/gitlab-mcp/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/mpaarating/gitlab-mcp/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/mpaarating/gitlab-mcp/releases/tag/v0.1.0
