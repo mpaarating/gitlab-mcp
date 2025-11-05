@@ -44,7 +44,37 @@ This compiles TypeScript to JavaScript in the `dist/` directory.
    # GITLAB_BASE_URL=https://gitlab.com  # Uncomment for self-managed
    ```
 
-## Step 4: Configure Your MCP Client
+## Step 4: Test Your Configuration (Optional but Recommended)
+
+Before configuring your MCP client, verify your setup:
+
+```bash
+npx tsx scripts/test-connection.ts
+```
+
+**Expected output:**
+```
+🔍 Testing GitLab MCP Server Configuration
+
+1️⃣ Loading configuration...
+   ✅ GitLab URL: https://gitlab.com
+   ✅ Token: glpat-xxxx...
+   ✅ Log Level: INFO
+
+2️⃣ Testing GitLab API connection...
+   ✅ Connected as: Your Name (@youruser)
+
+3️⃣ Verifying token permissions...
+   ✅ Token has API access
+
+✨ Configuration test successful!
+```
+
+If you see errors, the script will provide helpful troubleshooting tips!
+
+---
+
+## Step 5: Configure Your MCP Client
 
 ### Option A: Cursor
 
@@ -91,7 +121,7 @@ Create or edit `~/.cursor/mcp.json`:
 - **Cursor**: Restart Cursor completely
 - **Claude Desktop**: Restart Claude Desktop
 
-## Step 6: Test It!
+## Step 7: Test It!
 
 ### In Cursor or Claude, try:
 
