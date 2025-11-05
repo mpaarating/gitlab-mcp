@@ -208,6 +208,37 @@ To use with a self-managed GitLab instance:
 
 ## Troubleshooting
 
+### "GITLAB_TOKEN environment variable is required"
+
+**Cause**: The MCP server cannot find the GitLab token in the environment
+
+**Solution**:
+
+1. **Verify MCP Configuration**: Check your MCP config file and ensure `GITLAB_TOKEN` is in the `env` section:
+   - Cursor: `~/.cursor/mcp.json`
+   - Claude Desktop: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
+   
+   Example:
+   ```json
+   {
+     "mcpServers": {
+       "gitlab-mr-comments": {
+         "command": "node",
+         "args": ["/absolute/path/to/gitlab-mcp/dist/server.js"],
+         "env": {
+           "GITLAB_TOKEN": "glpat_your_token_here"
+         }
+       }
+     }
+   }
+   ```
+
+2. **Restart Your Client**: After adding/changing the token, you MUST completely restart Cursor or Claude Desktop
+
+3. **Check Token Format**: Ensure the token starts with `glpat-` and has no extra spaces or quotes
+
+4. **Note**: A `.env` file in the project directory is NOT used when running as an MCP server. The token must be in the MCP client's config file.
+
 ### "Authentication failed"
 
 **Cause**: Invalid or missing token, insufficient permissions

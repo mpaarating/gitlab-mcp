@@ -159,6 +159,45 @@ Replace `my-org/my-repo` with your actual GitLab project path and `123` with you
 
 ## Troubleshooting
 
+### "GITLAB_TOKEN environment variable is required"
+
+This is the most common issue when setting up the MCP server!
+
+**Cause**: The token is not configured in your MCP client's config file, or you haven't restarted the client.
+
+**Solution**:
+
+1. **Check your MCP config file has the token**:
+   ```json
+   {
+     "mcpServers": {
+       "gitlab-mr-comments": {
+         "command": "node",
+         "args": ["/absolute/path/to/gitlab-mcp/dist/server.js"],
+         "env": {
+           "GITLAB_TOKEN": "glpat_your_actual_token_here"
+         }
+       }
+     }
+   }
+   ```
+
+2. **IMPORTANT**: After adding or changing the `GITLAB_TOKEN`, you MUST:
+   - Completely quit Cursor/Claude Desktop (not just reload)
+   - Restart the application
+   - The server won't pick up changes until you restart
+
+3. **Common mistakes**:
+   - ❌ Only creating a `.env` file (not used by MCP servers)
+   - ❌ Forgetting to restart after config changes
+   - ❌ Using a relative path instead of absolute path to `dist/server.js`
+   - ❌ Token has extra spaces or incorrect format
+
+4. **Verify your config location**:
+   - Cursor: `~/.cursor/mcp.json`
+   - Claude Desktop (macOS): `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - Claude Desktop (Windows): `%APPDATA%/Claude/claude_desktop_config.json`
+
 ### "Authentication failed"
 
 **Check**:
