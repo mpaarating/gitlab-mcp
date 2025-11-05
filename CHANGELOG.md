@@ -5,43 +5,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.1.1] - 2025-11-05
 
 ### Added
-- Initial implementation of GitLab MCP Server
-- `gitlab_get_mr_comments` tool for fetching MR comments
-- Support for inline discussions and overview notes
-- Filtering by resolution status (resolved/unresolved)
-- System note filtering
-- Dual output formats (JSON and Markdown)
-- Comprehensive error handling with remediation hints
-- Retry logic with exponential backoff
-- Structured logging with secret redaction
-- Support for self-managed GitLab instances
-- Pagination handling (automatic fetch of all pages)
-- Read-only architecture (GET requests only)
-- Complete documentation and examples
+- Test connection script (`npx tsx scripts/test-connection.ts`) to verify GitLab setup before configuration
+- New npm scripts: `start:dev` (build and start) and `inspector` (debug mode)
+- Status badges in README (CI, License, TypeScript, Node.js versions)
+- Step-by-step test connection guide in QUICKSTART.md
 
-### Security
-- Read-only design (no write operations)
-- Token scope recommendation (`read_api`)
-- Automatic secret redaction in logs
-- No data persistence (in-memory only)
+### Fixed
+- **Critical**: Added `dotenv` support to automatically load `.env` files
+- Users can now use `.env` files without manually exporting environment variables
+- Configuration now works out of the box with `.env` file
+
+### Changed
+- Updated QUICKSTART.md with connection test step
+- Improved error messages in test connection script with specific troubleshooting tips
+- Enhanced README with development section
 
 ## [0.1.0] - 2025-11-05
 
 ### Added
-- Initial project setup
-- Core architecture implementation
-- MCP server integration
-- GitLab API client (read-only)
-- Comment normalization and filtering
-- Markdown digest generation
-- Comprehensive test suite
-- Documentation (README, PRD, System Design)
-- Example requests and responses
-- JSON Schema export
+- Initial release of GitLab MCP Server
+- Read-only MCP server for retrieving GitLab merge request comments
+- Single tool: `gitlab_get_mr_comments`
+- Support for inline discussions and overview notes
+- Advanced filtering options (resolved, unresolved, system notes)
+- Dual output formats (JSON and Markdown)
+- Comprehensive test suite (40 unit tests)
+- CI/CD pipeline with GitHub Actions
+- Complete documentation (README, QUICKSTART, CONTRIBUTING, SECURITY)
+- JSON Schema exports for API consumers
 
-[Unreleased]: https://github.com/mpaarating/gitlab-mcp/compare/v0.1.0...HEAD
+### Security
+- Read-only guarantee enforced at code, type, and API levels
+- Token redaction in logs
+- Comprehensive security documentation
+
+[0.1.1]: https://github.com/mpaarating/gitlab-mcp/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/mpaarating/gitlab-mcp/releases/tag/v0.1.0
-
