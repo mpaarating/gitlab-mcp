@@ -1,0 +1,196 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/mpaarating/gitlab-mcp/main/schemas/gitlab-mr-comments.schema.json",
+  "title": "GitLab MR Comments Response",
+  "description": "Schema for GitLab merge request comments response from the MCP server",
+  "$ref": "#/definitions/GitLabMRCommentsResponse",
+  "definitions": {
+    "GitLabMRCommentsResponse": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "type": "string"
+        },
+        "mr": {
+          "type": "number"
+        },
+        "fetchedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "counts": {
+          "type": "object",
+          "properties": {
+            "comments": {
+              "type": "number"
+            },
+            "discussions": {
+              "type": "number"
+            },
+            "notes": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "comments",
+            "discussions",
+            "notes"
+          ],
+          "additionalProperties": false
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "discussion",
+                  "note"
+                ]
+              },
+              "thread_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "note_id": {
+                "type": "number"
+              },
+              "author": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "username",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "body": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "system": {
+                "type": "boolean"
+              },
+              "resolvable": {
+                "type": "boolean"
+              },
+              "resolved": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "resolved_by": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "username",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "position": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "file_path": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "source",
+              "thread_id",
+              "note_id",
+              "author",
+              "body",
+              "created_at",
+              "updated_at",
+              "system",
+              "resolvable",
+              "resolved",
+              "resolved_by",
+              "position",
+              "file_path"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "markdown": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project",
+        "mr",
+        "fetchedAt",
+        "counts",
+        "comments"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

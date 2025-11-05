@@ -1,0 +1,139 @@
+[
+  {
+    "id": "abc123",
+    "individual_note": false,
+    "notes": [
+      {
+        "id": 1,
+        "type": null,
+        "body": "This needs better error handling",
+        "author": {
+          "id": 101,
+          "username": "reviewer1",
+          "name": "Alice Reviewer"
+        },
+        "created_at": "2025-01-01T10:00:00.000Z",
+        "updated_at": "2025-01-01T10:00:00.000Z",
+        "system": false,
+        "noteable_id": 500,
+        "noteable_type": "MergeRequest",
+        "resolvable": true,
+        "resolved": false,
+        "resolved_by": null,
+        "position": {
+          "base_sha": "abc",
+          "start_sha": "def",
+          "head_sha": "ghi",
+          "old_path": "src/api/users.ts",
+          "new_path": "src/api/users.ts",
+          "position_type": "text",
+          "old_line": null,
+          "new_line": 45
+        }
+      },
+      {
+        "id": 2,
+        "type": null,
+        "body": "Good catch, I'll fix this",
+        "author": {
+          "id": 102,
+          "username": "developer1",
+          "name": "Bob Developer"
+        },
+        "created_at": "2025-01-01T10:30:00.000Z",
+        "updated_at": "2025-01-01T10:30:00.000Z",
+        "system": false,
+        "noteable_id": 500,
+        "noteable_type": "MergeRequest",
+        "resolvable": true,
+        "resolved": false,
+        "resolved_by": null
+      }
+    ]
+  },
+  {
+    "id": "def456",
+    "individual_note": false,
+    "notes": [
+      {
+        "id": 3,
+        "type": null,
+        "body": "Consider extracting this to a helper function",
+        "author": {
+          "id": 101,
+          "username": "reviewer1",
+          "name": "Alice Reviewer"
+        },
+        "created_at": "2025-01-01T11:00:00.000Z",
+        "updated_at": "2025-01-01T11:05:00.000Z",
+        "system": false,
+        "noteable_id": 500,
+        "noteable_type": "MergeRequest",
+        "resolvable": true,
+        "resolved": true,
+        "resolved_by": {
+          "id": 102,
+          "username": "developer1",
+          "name": "Bob Developer"
+        },
+        "position": {
+          "base_sha": "abc",
+          "start_sha": "def",
+          "head_sha": "ghi",
+          "old_path": "src/utils/helper.ts",
+          "new_path": "src/utils/helper.ts",
+          "position_type": "text",
+          "old_line": null,
+          "new_line": 78
+        }
+      },
+      {
+        "id": 4,
+        "type": null,
+        "body": "Done! ✅",
+        "author": {
+          "id": 102,
+          "username": "developer1",
+          "name": "Bob Developer"
+        },
+        "created_at": "2025-01-01T11:05:00.000Z",
+        "updated_at": "2025-01-01T11:05:00.000Z",
+        "system": false,
+        "noteable_id": 500,
+        "noteable_type": "MergeRequest",
+        "resolvable": true,
+        "resolved": true,
+        "resolved_by": {
+          "id": 102,
+          "username": "developer1",
+          "name": "Bob Developer"
+        }
+      }
+    ]
+  },
+  {
+    "id": "sys789",
+    "individual_note": true,
+    "notes": [
+      {
+        "id": 5,
+        "type": "DiffNote",
+        "body": "added 3 commits",
+        "author": {
+          "id": 102,
+          "username": "developer1",
+          "name": "Bob Developer"
+        },
+        "created_at": "2025-01-01T09:00:00.000Z",
+        "updated_at": "2025-01-01T09:00:00.000Z",
+        "system": true,
+        "noteable_id": 500,
+        "noteable_type": "MergeRequest",
+        "resolvable": false,
+        "resolved": false,
+        "resolved_by": null
+      }
+    ]
+  }
+]
+

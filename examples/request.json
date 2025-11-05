@@ -1,0 +1,13 @@
+{
+  "tool": "gitlab_get_mr_comments",
+  "arguments": {
+    "project": "my-org/my-project",
+    "mr": 123,
+    "includeSystem": false,
+    "includeOverviewNotes": true,
+    "onlyUnresolved": true,
+    "perPage": 100,
+    "format": "json"
+  }
+}
+

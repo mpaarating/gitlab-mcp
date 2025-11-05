@@ -1,0 +1,57 @@
+[
+  {
+    "id": 10,
+    "type": null,
+    "body": "Overall looks good, just a few minor issues to address",
+    "author": {
+      "id": 101,
+      "username": "reviewer1",
+      "name": "Alice Reviewer"
+    },
+    "created_at": "2025-01-01T12:00:00.000Z",
+    "updated_at": "2025-01-01T12:00:00.000Z",
+    "system": false,
+    "noteable_id": 500,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "resolved": false,
+    "resolved_by": null
+  },
+  {
+    "id": 11,
+    "type": null,
+    "body": "Thanks for the review!",
+    "author": {
+      "id": 102,
+      "username": "developer1",
+      "name": "Bob Developer"
+    },
+    "created_at": "2025-01-01T12:30:00.000Z",
+    "updated_at": "2025-01-01T12:30:00.000Z",
+    "system": false,
+    "noteable_id": 500,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "resolved": false,
+    "resolved_by": null
+  },
+  {
+    "id": 12,
+    "type": "StatusNote",
+    "body": "approved this merge request",
+    "author": {
+      "id": 101,
+      "username": "reviewer1",
+      "name": "Alice Reviewer"
+    },
+    "created_at": "2025-01-01T13:00:00.000Z",
+    "updated_at": "2025-01-01T13:00:00.000Z",
+    "system": true,
+    "noteable_id": 500,
+    "noteable_type": "MergeRequest",
+    "resolvable": false,
+    "resolved": false,
+    "resolved_by": null
+  }
+]
+

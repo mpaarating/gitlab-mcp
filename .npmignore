@@ -1,0 +1,28 @@
+# Source files
+src/
+tsconfig.json
+
+# Tests
+tests/
+*.test.ts
+*.spec.ts
+
+# Development files
+.github/
+.vscode/
+.editorconfig
+.prettierrc
+.eslintrc.json
+
+# Documentation (keep in repo but not in npm package)
+docs/
+examples/
+scripts/
+
+# Build artifacts that should stay in repo
+.gitignore
+
+# Environment and logs
+*.log
+.env*
+

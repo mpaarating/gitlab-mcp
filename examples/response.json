@@ -1,0 +1,98 @@
+{
+  "project": "my-org/my-project",
+  "mr": 123,
+  "fetchedAt": "2025-11-05T14:30:12.345Z",
+  "counts": {
+    "comments": 5,
+    "discussions": 2,
+    "notes": 1
+  },
+  "comments": [
+    {
+      "source": "discussion",
+      "thread_id": "abc123def456",
+      "note_id": 999001,
+      "author": {
+        "id": 42,
+        "username": "reviewer1",
+        "name": "Jane Reviewer"
+      },
+      "body": "Please add error handling here. This could throw an uncaught exception.",
+      "created_at": "2025-11-05T10:15:30.000Z",
+      "updated_at": "2025-11-05T10:15:30.000Z",
+      "system": false,
+      "resolvable": true,
+      "resolved": false,
+      "resolved_by": null,
+      "position": {
+        "new_path": "src/api/users.ts",
+        "new_line": 45
+      },
+      "file_path": "src/api/users.ts"
+    },
+    {
+      "source": "discussion",
+      "thread_id": "abc123def456",
+      "note_id": 999002,
+      "author": {
+        "id": 10,
+        "username": "developer",
+        "name": "John Developer"
+      },
+      "body": "Good catch! I'll add a try-catch block.",
+      "created_at": "2025-11-05T10:20:15.000Z",
+      "updated_at": null,
+      "system": false,
+      "resolvable": true,
+      "resolved": false,
+      "resolved_by": null,
+      "position": {
+        "new_path": "src/api/users.ts",
+        "new_line": 45
+      },
+      "file_path": "src/api/users.ts"
+    },
+    {
+      "source": "discussion",
+      "thread_id": "def456ghi789",
+      "note_id": 999003,
+      "author": {
+        "id": 42,
+        "username": "reviewer1",
+        "name": "Jane Reviewer"
+      },
+      "body": "Extract this logic into a separate helper function for reusability.",
+      "created_at": "2025-11-05T10:25:00.000Z",
+      "updated_at": null,
+      "system": false,
+      "resolvable": true,
+      "resolved": false,
+      "resolved_by": null,
+      "position": {
+        "new_path": "src/services/auth.ts",
+        "new_line": 78
+      },
+      "file_path": "src/services/auth.ts"
+    },
+    {
+      "source": "note",
+      "thread_id": null,
+      "note_id": 999004,
+      "author": {
+        "id": 55,
+        "username": "architect",
+        "name": "Senior Architect"
+      },
+      "body": "Overall approach looks good. Consider adding integration tests for the new endpoints.",
+      "created_at": "2025-11-05T11:00:00.000Z",
+      "updated_at": null,
+      "system": false,
+      "resolvable": false,
+      "resolved": null,
+      "resolved_by": null,
+      "position": null,
+      "file_path": null
+    }
+  ]
+}
+
