@@ -3,6 +3,11 @@
  * Loads and validates environment variables
  */
 
+import { config } from "dotenv";
+
+// Load .env file if it exists
+config();
+
 export interface Config {
   gitlabBaseUrl: string;
   gitlabToken: string;
