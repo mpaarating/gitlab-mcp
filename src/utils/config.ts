@@ -4,9 +4,16 @@
  */
 
 import { config } from "dotenv";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
-// Load .env file if it exists
-config();
+// Get the project root directory (2 levels up from dist/utils/config.js)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const projectRoot = join(__dirname, "../..");
+
+// Load .env file from project root
+config({ path: join(projectRoot, ".env") });
 
 export interface Config {
   gitlabBaseUrl: string;
